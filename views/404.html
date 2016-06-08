@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css"></link>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url('./test.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+    <input id="button" type="button" value="send Message">
+    <!--<a href="javascript:;" class="weui_btn weui_btn_primary">绿色按钮</a>-->
+    <script>
+        var button = document.getElementById('button');
+        button.addEventListener('click', function(event) {
+            $.ajax({
+                url:"http://127.0.0.1:3001/user/register",
+                method: 'post',
+                data: {
+                    userName: "haha",
+                    isRoot: true
+                },
+                success: function(result) {
+                    console.log(result.result);
+                }
+            })
+            event.preventDefault();
+        }, false)
+        var loadingToast = document.getElementById('loadingToast');
+        var testBtn = document.getElementById('testBtn');      
+        testBtn.addEventListener('click', function(event) {
+            loadingToast.style.display = "block";
+        }, false)
+    </script>
+</body>
+</html>

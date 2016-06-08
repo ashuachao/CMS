@@ -1,0 +1,9 @@
+img{
+    width:20px;
+    margin-right:5px;
+    display:block
+}
+
+#dialog{
+    display: none;
+}
